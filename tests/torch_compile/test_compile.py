@@ -10,6 +10,7 @@ from deepspeed import comm
 
 import torch
 import json
+import os
 #import intel_extension_for_pytorch  # noqa: F401 # type: ignore
 from torch.utils.data import Dataset, DataLoader
 
@@ -51,8 +52,9 @@ class MyModule(torch.nn.Module):
         return output
 
 # Load config
-with open('ds_config_z3.json') as f:
-    ds_config_z2 = json.loads(f)
+print([f for f in os.listdir('.') if os.path.isfile(f)])
+with open('ds_config_z3.json') as file:
+    ds_config_z2 = json.loads(file)
     print(ds_config_z2)
 
 # Init model
