@@ -9,6 +9,7 @@ from deepspeed.accelerator import get_accelerator
 from deepspeed import comm
 
 import torch
+import json
 #import intel_extension_for_pytorch  # noqa: F401 # type: ignore
 from torch.utils.data import Dataset, DataLoader
 
@@ -49,7 +50,12 @@ class MyModule(torch.nn.Module):
         output = residual + self.fc1(self.fc0(self.dropout(data))) * 0.5
         return output
 
+# Load config
+with open('strings.json') as f:
+    ds_config_z2 = json.loads('ds_config_z3.json')
+    print(d)
 
+# Init model
 model = MyModule()
 params = model.parameters()
 
@@ -57,7 +63,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--local_rank', type=int, default=-1, help='local rank passed from distributed launcher')
 parser.add_argument('--deepspeed_config',
                     type=str,
-                    default='ds_config_z3.json',
+                    default=ds_config_z2,
                     help='path to DeepSpeed configuration file')
 cmd_args = parser.parse_args()
 
