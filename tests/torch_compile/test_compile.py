@@ -51,9 +51,9 @@ class MyModule(torch.nn.Module):
         return output
 
 # Load config
-with open('strings.json') as f:
-    ds_config_z2 = json.loads('ds_config_z3.json')
-    print(d)
+with open('ds_config_z3.json') as f:
+    ds_config_z2 = json.loads(f)
+    print(ds_config_z2)
 
 # Init model
 model = MyModule()
