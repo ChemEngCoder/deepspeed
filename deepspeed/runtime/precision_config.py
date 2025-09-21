@@ -88,7 +88,7 @@ class DeepSpeedFP16Config(DeepSpeedConfigModel):
     For float16 configuration
     """
 
-    enabled: bool = False
+    enabled: bool = True
     """
     Enable fp16 mixed-precision training/inference
     """
