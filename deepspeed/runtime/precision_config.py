@@ -41,7 +41,7 @@ class DeepSpeedBF16Config(DeepSpeedConfigModel):
     For bfloat16 configuration
     """
 
-    enabled: bool = False
+    enabled: bool = True
     """
     Enable bfloat16 mixed-precision training/inference
     """
