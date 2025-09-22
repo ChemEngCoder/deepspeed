@@ -327,7 +327,7 @@ class BF16_Optimizer(ZeROOptimizer):
         """
         self.clear_lp_grads()
         loss.backward(retain_graph=retain_graph, **bwd_kwargs)
-
+        log_dist("BFLOAT16 OPTIMIZER BACKWARD")
         if update_hp_grads:
             self.update_hp_grads(clear_lp_grads=clear_lp_grads)
 

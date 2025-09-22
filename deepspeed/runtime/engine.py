@@ -2319,7 +2319,7 @@ class DeepSpeedEngine(Module):
         """
         assert self.optimizer is not None and not isinstance(self.optimizer, DummyOptim), \
             "must provide optimizer during init in order to use backward"
-       log_dist("BACKWARD")
+        log_dist("BACKWARD")
         self._start_timers(self.engine_timers.backward_timers)
         loss = self._backward_prologue(loss, scale_wrt_gas)
         self._do_optimizer_backward(loss, retain_graph)
