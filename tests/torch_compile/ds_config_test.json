@@ -31,6 +31,6 @@
       "stage": 3,
       "reduce_scatter": true,
       "overlap_comm": false,
-      "contiguous_gradients": false
+      "contiguous_gradients": true
   }
 }
