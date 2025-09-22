@@ -2263,6 +2263,7 @@ class DeepSpeedEngine(Module):
         see_memory_usage("Engine after backward", force=self.memory_breakdown())
 
     def _do_optimizer_backward(self, loss, retain_graph):
+        print("DO OPTIMIZER BACKWARD")
         self._start_timers(self.engine_timers.backward_inner_timers)
         if self.zero_optimization():
             self.optimizer.is_gradient_accumulation_boundary = self.is_gradient_accumulation_boundary()
@@ -2279,6 +2280,7 @@ class DeepSpeedEngine(Module):
             else:
                 self.optimizer.backward(loss, retain_graph=retain_graph)
         elif self.bfloat16_enabled():
+            print("bFLOAT16 OPTIMIZER")
             self.optimizer.backward(loss, retain_graph=retain_graph)
         else:
             if self.eigenvalue_enabled():
