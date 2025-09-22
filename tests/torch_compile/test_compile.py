@@ -53,7 +53,7 @@ class MyModule(torch.nn.Module):
 
 # Load config
 print([f for f in os.listdir('.') if os.path.isfile(f)])
-with open('ds_config_z3.json') as file:
+with open('ds_config_test.json') as file:
     ds_config_z2 = json.load(file)
     print(ds_config_z2)
 
