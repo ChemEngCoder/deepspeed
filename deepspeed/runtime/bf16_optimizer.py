@@ -341,7 +341,6 @@ class BF16_Optimizer(ZeROOptimizer):
             f'high precision param has no gradient, lp param_id = {id(lp)} group_info = [{group_idx}][{param_idx}]'
 
         hp_grad.data.add_(lp.grad.data.to(hp_grad.dtype).view(hp_grad.shape))
-        print("Updated hp_grad")
         lp._hp_grad = hp_grad
         self.fp32_groups_has_gradients[group_idx][param_idx] = True
 
